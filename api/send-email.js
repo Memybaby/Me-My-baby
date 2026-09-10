@@ -13,7 +13,8 @@
 //   4. Sur vercel.com → le projet → Settings → Environment Variables, ajouter RESEND_API_KEY
 //   5. Redéployer le projet
 //
-// Utilisé par : le menu personnalisé de Léa, le reçu de paiement envoyé après un abonnement.
+// Utilisé par : le menu personnalisé de Léa, le reçu de paiement envoyé après un abonnement,
+// le formulaire "Nous joindre" (avec pièce jointe optionnelle), les courriels d'abonnement.
 
 import { sendViaResend } from "./_lib/resend.js";
 
@@ -24,12 +25,12 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { to, subject, html } = req.body || {};
+    const { to, subject, html, attachments } = req.body || {};
     if (!to || !subject || !html) {
       res.status(400).json({ error: "Champs 'to', 'subject' et 'html' requis." });
       return;
     }
-    const data = await sendViaResend({ to, subject, html });
+    const data = await sendViaResend({ to, subject, html, attachments });
     res.status(200).json({ ok: true, data });
   } catch (e) {
     res.status(500).json({ error: e.message || "Impossible d'envoyer le courriel." });
