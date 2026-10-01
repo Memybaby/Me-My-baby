@@ -1,0 +1,121 @@
+// api/create-portal-session.js
+// Crée une session vers le "Customer Portal" de Stripe — une page hébergée par Stripe où la
+// personne peut annuler, réactiver, changer de mode de paiement et consulter ses factures, en toute
+// sécurité, avec de vrais effets sur son vrai abonnement (contrairement à l'ancienne simulation
+// locale qui ne touchait jamais réellement à Stripe).
+
+import { stripeConfigForEmail } from "./_lib/stripe-mode.js";
+import { nextPaymentPreview } from "./_lib/stripe-preview.js";
+
+const SUPABASE_URL = "https://mojvmjgprcbivamxejdp.supabase.co";
+
+// Lecture de l'abonnement dans Stripe (version d'API fixée pour garder les mêmes champs).
+async function subscriptionInfo(customerId, key) {
+  const headers = { Authorization: `Bearer ${key}`, "Stripe-Version": "2024-06-20" };
+  const get = async (path) => {
+    const r = await fetch(`https://api.stripe.com/v1/${path}`, { headers });
+    const j = await r.json().catch(() => ({}));
+    return r.ok ? j : null;
+  };
+  const list = await get(`subscriptions?customer=${encodeURIComponent(customerId)}&status=all&limit=5`);
+  const subs = (list?.data || []).sort((a, b) => b.created - a.created);
+  const sub = subs.find((x) => ["trialing", "active", "past_due", "unpaid"].includes(x.status)) || subs[0];
+  if (!sub) return { found: false };
+  const cancelAt = sub.cancel_at || (sub.cancel_at_period_end ? sub.current_period_end : null);
+  const info = {
+    found: true,
+    status: sub.status,
+    cancelAt: cancelAt || null,
+    endedAt: sub.ended_at || null,
+    trialEnd: sub.status === "trialing" ? sub.trial_end : null,
+    currency: sub.currency || "cad",
+    nextDate: null,
+    nextAmount: null,
+  };
+  // Pas de prochain paiement si l'abonnement est annulé ou se termine.
+  if (cancelAt || sub.status === "canceled") return info;
+  // Prochain paiement : même calcul que Stripe (code promo et taxes compris).
+  const prev = await nextPaymentPreview(key, customerId, sub.id).catch(() => null);
+  info.nextDate = prev?.date || (sub.status === "trialing" ? sub.trial_end : sub.current_period_end) || null;
+  info.nextAmount = prev?.amount ?? null;
+  info.currency = prev?.currency || info.currency;
+  return info;
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!process.env.STRIPE_SECRET_KEY || !SUPABASE_SERVICE_ROLE_KEY) {
+    return res.status(500).json({ error: "Stripe n'est pas configuré correctement sur le serveur." });
+  }
+
+  try {
+    const authHeader = req.headers.authorization || "";
+    const accessToken = authHeader.replace(/^Bearer\s+/i, "");
+    if (!accessToken) {
+      return res.status(401).json({ error: "Session manquante." });
+    }
+
+    // Vérifie le jeton d'accès et récupère l'utilisateur Supabase authentifié.
+    const userRes = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+      headers: { Authorization: `Bearer ${accessToken}`, apikey: SUPABASE_SERVICE_ROLE_KEY },
+    });
+    if (!userRes.ok) {
+      return res.status(401).json({ error: "Session invalide ou expirée." });
+    }
+    const user = await userRes.json();
+    // Même mode Stripe que lors du paiement (fictif pour les comptes test de la conceptrice).
+    const STRIPE_SECRET_KEY = stripeConfigForEmail(user.email).secretKey;
+
+    const profileRes = await fetch(
+      `${SUPABASE_URL}/rest/v1/profiles?id=eq.${user.id}&select=stripe_customer_id`,
+      { headers: { Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`, apikey: SUPABASE_SERVICE_ROLE_KEY } }
+    );
+    const rows = await profileRes.json().catch(() => []);
+    const customerId = rows?.[0]?.stripe_customer_id;
+
+    if (!customerId) {
+      return res.status(400).json({ error: "Aucun abonnement Stripe trouvé pour ce compte." });
+    }
+
+    // action « info » : l'appli demande l'état réel de l'abonnement pour la page Mon abonnement
+    // (prochain paiement : date + montant avec code promo et taxes ; annulation demandée).
+    if (req.body && req.body.action === "info") {
+      return res.status(200).json(await subscriptionInfo(customerId, STRIPE_SECRET_KEY));
+    }
+
+    const origin = req.headers.origin || "https://www.memybabyapp.com";
+    // Langue de la page Stripe « Gérer mon abonnement » = langue choisie dans l'appli.
+    const lang = (req.body && req.body.lang) || "";
+    const locale = lang === "fr" ? "fr-CA" : lang === "es" ? "es" : lang === "en" ? "en" : "auto";
+    const params = new URLSearchParams();
+    params.append("customer", customerId);
+    params.append("return_url", `${origin}/?portal=return`);
+    params.append("locale", locale);
+
+    const stripeRes = await fetch("https://api.stripe.com/v1/billing_portal/sessions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${STRIPE_SECRET_KEY}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params.toString(),
+    });
+
+    const portalSession = await stripeRes.json();
+    if (!stripeRes.ok) {
+      console.error("Stripe create-portal-session error:", portalSession);
+      return res.status(500).json({ error: portalSession.error?.message || "Erreur Stripe." });
+    }
+
+    return res.status(200).json({ url: portalSession.url });
+  } catch (err) {
+    console.error("create-portal-session error:", err);
+    return res.status(500).json({ error: "Erreur serveur inattendue." });
+  }
+}
