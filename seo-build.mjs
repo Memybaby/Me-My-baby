@@ -90,6 +90,8 @@ if(search){
   search.addEventListener("input",apply);
   btns.forEach(function(b){b.addEventListener("click",function(){var c=b.getAttribute("data-art-cat");cat=(c===cat&&c)?"":c;apply()})});
 }
+function hideBroken(img){img.style.display="none"}
+document.querySelectorAll("#root img").forEach(function(img){if(img.complete&&img.naturalWidth===0&&img.getAttribute("src"))hideBroken(img);else img.addEventListener("error",function(){hideBroken(img)})});
 var art=document.querySelector("[data-art-id]");if(art)track("article",art.getAttribute("data-art-id"));
 })();`;
 const hash = (str) => { let x = 5381; for (let i = 0; i < str.length; i++) x = ((x * 33) ^ str.charCodeAt(i)) >>> 0; return x.toString(36); };
@@ -387,6 +389,26 @@ for (const lang of LANGS) {
 }
 for (const x of articleInfo) addUrl(x.slugs, x.date);
 addUrl(PATHS.privacy); addUrl(PATHS.terms);
+
+// ---------- 6b. Page de vérification des photos (pour la conceptrice, invisible pour Google) ----------
+// www.memybabyapp.com/verif-images : montre les 208 photos d'articles et dit lesquelles ne s'affichent
+// pas ou sont en double. Pas dans le plan du site, et « noindex » pour que Google l'ignore.
+{
+  const seenUrl = new Map();
+  ARTICLES.forEach((a, i) => { const u = (a.image?.url || "").split("?")[0]; if (!seenUrl.has(u)) seenUrl.set(u, []); seenUrl.get(u).push(i + 1); });
+  const dups = [...seenUrl.values()].filter((l) => l.length > 1);
+  const rows = ARTICLES.map((a, i) => `<div class="r" data-n="${i + 1}"><img src="${esc(a.image?.url || "")}" alt="" loading="lazy"><div><b>N° ${i + 1}</b> — ${esc(a.title.fr)}<br><small>${esc(a.id)}</small><span class="st"></span></div></div>`).join("");
+  await writeFile(join(DIST, "verif-images.html"), `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Vérification des photos — Me My Baby</title>
+<style>body{margin:0;padding:16px;background:#FBF1E3;font-family:Inter,Arial,sans-serif;color:#3A3833;font-size:14px}h1{font-family:Georgia,serif;color:#5B3A24;font-size:22px}.box{background:#fff;border-radius:14px;padding:14px;margin:0 0 14px;border:1px solid #E7E1D3}.r{display:flex;gap:10px;align-items:center;background:#fff;border-radius:12px;padding:8px;margin:6px 0;border:1px solid #E7E1D3}.r img{width:56px;height:56px;object-fit:cover;border-radius:8px;flex-shrink:0;background:#eee}.r.bad{border:2px solid #B3261E;background:#FDECEC}.st{display:block;font-weight:800;color:#B3261E}small{color:#7A7364}</style></head><body>
+<h1>Vérification des photos des articles</h1>
+<div class="box"><b>Photos qui ne s'affichent pas :</b> <span id="bad">vérification en cours…</span></div>
+<div class="box"><b>Photos en double :</b> ${dups.length ? dups.map((l) => "n° " + l.join(" et ")).join(" · ") : "aucune"}</div>
+${rows}
+<script>(function(){var imgs=[].slice.call(document.querySelectorAll(".r img")),left=imgs.length,bad=[];
+imgs.forEach(function(img){img.loading="eager";var fin=false;setTimeout(function(){if(!fin)done(false)},25000);function done(ok){if(fin)return;fin=true;var r=img.closest(".r");if(!ok){r.classList.add("bad");r.querySelector(".st").textContent="❌ Photo introuvable";bad.push(+r.getAttribute("data-n"))}if(--left===0){bad.sort(function(a,b){return a-b});document.getElementById("bad").textContent=bad.length?bad.length+" — n° "+bad.join(", "):"aucune 🎉"}}
+if(img.complete&&img.naturalWidth>0)done(true);else if(img.complete&&img.getAttribute("src"))done(false);else{img.addEventListener("load",function(){done(true)});img.addEventListener("error",function(){done(false)})}});})();</script>
+</body></html>`);
+}
 
 // ---------- 7. Plan du site et robots.txt ----------
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
