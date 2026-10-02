@@ -12142,8 +12142,8 @@ function CloseToolButton({ lang, goTo }) {
 }
 
 /* ---------------- OVULATION CALCULATOR ---------------- */
-function OvulationCalculator({ lang, goTo }) {
-  const [lmp, setLmp] = useState("");
+function OvulationCalculator({ lang, goTo, initialLmp }) {
+  const [lmp, setLmp] = useState(initialLmp || ""); // initialLmp : seulement pour le site public (modèle des résultats)
   const [cycleLength, setCycleLength] = useState(28);
 
   const result = useMemo(() => {
@@ -13987,8 +13987,8 @@ function OvulationExample({ lang, isMember, goTo }) {
 }
 
 /* ---------------- PREGNANCY CALCULATOR ---------------- */
-function PregnancyCalculator({ lang, goTo }) {
-  const [lmp, setLmp] = useState("");
+function PregnancyCalculator({ lang, goTo, initialLmp }) {
+  const [lmp, setLmp] = useState(initialLmp || ""); // initialLmp : seulement pour le site public (modèle des résultats)
 
   const result = useMemo(() => {
     if (!lmp) return null;
@@ -19133,7 +19133,7 @@ function BumpAlbumTool({ lang, session, userProfile, goTo }) {
         }
         @media screen { #bump-print-view { display: none; } }
       `}</style>
-      {createPortal(
+      {typeof document !== "undefined" && createPortal(
         // Grille qui remplit toute la page (4 colonnes x 4 rangées) — les photos occupent chaque
         // case en entier (object-fit: cover) plutôt que de laisser un espace vide autour, et le
         // numéro de semaine est superposé directement sur la photo plutôt que d'occuper sa propre
@@ -26374,7 +26374,8 @@ function NewArticlesBanner({ lang, goTo }) {
   );
 }
 
-function Home({ lang, goTo, isMember, userProfile, children, session, onDismissBirthAnnouncement, isReadOnlyPartner }) {
+function Home({ lang, goTo, isMember, userProfile, children, session, onDismissBirthAnnouncement, isReadOnlyPartner, heroExtra, publicExtra, hideTools }) {
+  // heroExtra / publicExtra : seulement utilisés par le site public (src/PublicSite.jsx) — vides dans l'appli.
   const h = T[lang].home;
 
   // On "gèle" ces valeurs dès le premier rendu : la bannière doit rester visible pendant toute cette
@@ -26590,6 +26591,7 @@ function Home({ lang, goTo, isMember, userProfile, children, session, onDismissB
               borderRadius: 999, fontSize: 13.5, fontWeight: 700, cursor: "pointer",
               boxShadow: "0 6px 16px rgba(217,139,164,0.32)",
             }}>{h.cta}</button>
+            {heroExtra}
           </div>
         </div>
         <div className="hero-illu" style={{ background: "#fff", borderRadius: 16, padding: 8, flexShrink: 0, boxShadow: "0 8px 20px rgba(217,139,164,0.22)" }}>
@@ -26601,9 +26603,11 @@ function Home({ lang, goTo, isMember, userProfile, children, session, onDismissB
 
       <NewArticlesBanner lang={lang} goTo={goTo} />
 
+      {!hideTools && (
       <div style={{ marginBottom: 28 }}>
         <QuickTrackerLinks lang={lang} isMember={isMember} goTo={goTo} children={children} userProfile={userProfile} session={session} isReadOnlyPartner={isReadOnlyPartner} />
       </div>
+      )}
 
       {/* Why it's a must-have */}
       <div style={{ marginBottom: 28 }}>
@@ -26666,14 +26670,16 @@ function Home({ lang, goTo, isMember, userProfile, children, session, onDismissB
           <span style={{ fontSize: 13, fontWeight: 800, color: COLORS.teal }}>{h.tryFreeBadge}</span>
         </div>
         <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "flex-start" }}>
-          <div style={{ flex: "1 1 320px", minWidth: 280 }}>
+          <div data-calc="preg" style={{ flex: "1 1 320px", minWidth: 280 }}>
             <PregnancyCalculator lang={lang} goTo={goTo} />
           </div>
-          <div style={{ flex: "1 1 320px", minWidth: 280 }}>
+          <div data-calc="ov" style={{ flex: "1 1 320px", minWidth: 280 }}>
             <OvulationCalculator lang={lang} goTo={goTo} />
           </div>
         </div>
       </div>
+
+      {publicExtra}
 
       {/* Closing invitation */}
       <div style={{
@@ -46814,3 +46820,10 @@ export default function App() {
 
 // Données utilisées aussi pour construire les pages publiques pour Google (seo-build.mjs).
 export { ARTICLES, ARTICLE_CATEGORIES, getPublishedArticles, LEGAL_TEXT };
+// Morceaux de l'appli réutilisés tels quels par le site public (src/PublicSite.jsx), pour que le
+// site ait exactement le même visuel, les mêmes textes et les mêmes calculateurs que l'appli.
+export {
+  Home, PregnancyCalculator, OvulationCalculator, LockedContent, WhatsIncludedCard, Card, Logo, Illustration,
+  COLORS, T, PLANS, UI_FONT, ToyDivider, FreeToolBadge, TRIAL_DAYS, SUPABASE_URL, SUPABASE_KEY,
+  QuickTrackerLinks, AIAssistant, SleepTracker, GrowthTracker, PlanningsTool, ContractionTracker, KickTracker, WeeklyMenuTable, ForumSection, BumpAlbumTool,
+};
