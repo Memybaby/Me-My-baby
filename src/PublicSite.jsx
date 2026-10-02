@@ -609,6 +609,9 @@ function CalcPage({ page, statics }) {
   );
 }
 
+// Si une photo ne se charge pas, le petit programme du site la cache : il reste un carré de couleur avec ce dessin.
+const CAT_EMOJI = { grossesse: "🤰", accouchement: "👶", sommeil: "🌙", alimentation: "🍼" };
+const IMG_COVER = { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" };
 const CAT_ICON = { grossesse: Baby, accouchement: Heart, sommeil: Moon, alimentation: Apple };
 
 function ArticleChip({ a, lang }) {
@@ -626,8 +629,9 @@ function ArticleChip({ a, lang }) {
 function FeaturedArticleCard({ a, lang }) {
   return (
     <a href={a.url} style={{ textDecoration: "none", color: "inherit", display: "block", background: "#fff", border: `1px solid ${COLORS.line}`, borderRadius: 18, overflow: "hidden", boxShadow: "0 3px 12px rgba(91,58,36,0.07)" }}>
-      <div style={{ position: "relative", height: 150, background: `${a.color}22` }}>
-        {a.img && <img src={a.img} alt={a.alt} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />}
+      <div style={{ position: "relative", height: 150, background: `${a.color}22`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 54 }}>
+        <span aria-hidden="true">{CAT_EMOJI[a.cat] || "📖"}</span>
+        {a.img && <img src={a.img} alt={a.alt} loading="lazy" style={IMG_COVER} />}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)" }} />
         <div style={{ position: "absolute", bottom: 10, left: 12 }}><ArticleChip a={a} lang={lang} /></div>
       </div>
@@ -644,8 +648,9 @@ function ArticleRowLink({ a, lang }) {
   const Icon = CAT_ICON[a.cat] || ClipboardList;
   return (
     <a href={a.url} style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 12, padding: "10px 14px", background: "#fff", border: `1px solid ${COLORS.line}`, borderRadius: 18, boxShadow: "0 2px 8px rgba(91,58,36,0.06)" }}>
-      <div style={{ width: 54, height: 54, borderRadius: 12, flexShrink: 0, overflow: "hidden", background: `${a.color}22` }}>
-        {a.img && <img src={a.img} alt={a.alt} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />}
+      <div style={{ width: 54, height: 54, borderRadius: 12, flexShrink: 0, overflow: "hidden", background: `${a.color}22`, position: "relative", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+        <span aria-hidden="true">{CAT_EMOJI[a.cat] || "📖"}</span>
+        {a.img && <img src={a.img} alt={a.alt} loading="lazy" style={IMG_COVER} />}
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
@@ -750,8 +755,9 @@ function ArticlePage({ page, statics }) {
     <div>
       <Crumbs items={[[P.home, page.paths.home], [P.artTitle, page.paths.articles], [art.title, null]]} />
       <article data-art-id={art.id} style={{ background: "#fff", border: `1px solid ${COLORS.line}`, borderRadius: 18, overflow: "hidden", boxShadow: `0 14px 34px ${art.color}30` }}>
-        <div style={{ position: "relative", height: 230, background: `${art.color}22` }}>
-          {art.img && <img src={art.img} alt={art.alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />}
+        <div style={{ position: "relative", height: 230, background: `${art.color}22`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 64 }}>
+          <span aria-hidden="true">{CAT_EMOJI[art.cat] || "📖"}</span>
+          {art.img && <img src={art.img} alt={art.alt} style={IMG_COVER} />}
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)" }} />
           <div style={{ position: "absolute", bottom: 12, left: 14 }}><ArticleChip a={art} lang={lang} /></div>
         </div>

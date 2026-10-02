@@ -39718,8 +39718,10 @@ function ArticlesSection({ lang }) {
         onClick={() => setOpenId(isOpen ? null : a.id)}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 14px" }}>
-          <div style={{ width: 54, height: 54, borderRadius: 12, flexShrink: 0, overflow: "hidden", position: "relative" }}>
-            <img src={a.image.url} alt={a.image.alt[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          <div style={{ width: 54, height: 54, borderRadius: 12, flexShrink: 0, overflow: "hidden", position: "relative", background: `${a.color}22`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+            <span aria-hidden="true">{{ grossesse: "🤰", accouchement: "👶", sommeil: "🌙", alimentation: "🍼" }[a.category] || "📖"}</span>
+            {/* Si la photo ne se charge pas, on la cache : il reste un joli carré de couleur avec un petit dessin. */}
+            <img src={a.image.url} alt={a.image.alt[lang]} loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
@@ -39781,8 +39783,9 @@ function ArticlesSection({ lang }) {
         }}
         onClick={() => setOpenId(isOpen ? null : a.id)}
       >
-        <div style={{ position: "relative", height: isOpen ? 220 : 150 }}>
-          <img src={a.image.url} alt={a.image.alt[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        <div style={{ position: "relative", height: isOpen ? 220 : 150, background: `${a.color}22`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 54 }}>
+          <span aria-hidden="true">{{ grossesse: "🤰", accouchement: "👶", sommeil: "🌙", alimentation: "🍼" }[a.category] || "📖"}</span>
+          <img src={a.image.url} alt={a.image.alt[lang]} loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)" }} />
           <div style={{
             position: "absolute", bottom: 10, left: 12, display: "flex", alignItems: "center", gap: 6,
