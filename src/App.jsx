@@ -27277,15 +27277,8 @@ function MembershipSection({ lang, goTo, onBecomeMember, userProfile, session })
           )}
           {!monthlyEquiv && <div style={{ marginBottom: 16 }} />}
 
-          <div style={{
-            background: COLORS.cream, borderRadius: 12, padding: "12px 14px", marginBottom: 14,
-            borderLeft: `3px solid ${COLORS.ochre}`,
-          }}>
-            <p style={{ margin: "0 0 4px", fontSize: 13, color: COLORS.text, fontStyle: "italic", lineHeight: 1.5 }}>
-              "{T[lang].home.testimonials[1].quote}"
-            </p>
-            <p style={{ margin: 0, fontSize: 11.5, color: COLORS.muted, fontWeight: 700 }}>— {T[lang].home.testimonials[1].name}</p>
-          </div>
+          {/* (Ancienne bulle de témoignage retirée : c'était un exemple inventé. On pourra y mettre un
+              vrai avis de membre, avec sa permission, plus tard.) */}
 
           {/* Résumé de commande — dû aujourd'hui + prochain paiement */}
           <div style={{ borderTop: `1px solid ${COLORS.line}`, paddingTop: 12, marginBottom: 14, display: "flex", flexDirection: "column", gap: 6 }}>
