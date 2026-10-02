@@ -18,7 +18,7 @@ import {
 import {
   Home, PregnancyCalculator, OvulationCalculator, Card, Logo, COLORS, UI_FONT,
   ToyDivider, PLANS, T as APP_T,
-  AIAssistant, SleepTracker, PlanningsTool, GrowthTracker, KickTracker, QuickTrackerLinks, BumpAlbumTool,
+  AIAssistant, SleepTracker, PlanningsTool, GrowthTracker, KickTracker, QuickTrackerLinks, BumpAlbumTool, QuickAccessBar, GlobalSearch,
   WeeklyMenuTable, ForumSection,
 } from "./App.jsx";
 
@@ -224,7 +224,7 @@ function SectionTitle({ children, sub, center }) {
 // cadre de téléphone, avec des données d'exemple. Rien n'est cliquable : c'est une image.
 const SCREEN_COLORS = [COLORS.pink, COLORS.ochre, COLORS.sage, COLORS.blue, COLORS.sky, COLORS.mint, COLORS.coral, COLORS.lavender, COLORS.yellow];
 
-export function PhoneFrame({ children, scale = 0.58, height = 780 }) {
+export function PhoneFrame({ children, scale = 0.58, height = 780, fade = true }) {
   const w = Math.round(390 * scale);
   return (
     <div style={{
@@ -236,7 +236,7 @@ export function PhoneFrame({ children, scale = 0.58, height = 780 }) {
         <div style={{ width: 390, transform: `scale(${scale})`, transformOrigin: "top left", padding: "26px 14px 14px", fontFamily: UI_FONT, color: COLORS.text, pointerEvents: "none" }} aria-hidden="true">
           {children}
         </div>
-        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 60, background: `linear-gradient(180deg, ${COLORS.cream}00 0%, ${COLORS.cream} 100%)` }} />
+        {fade && <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 60, background: `linear-gradient(180deg, ${COLORS.cream}00 0%, ${COLORS.cream} 100%)` }} />}
       </div>
     </div>
   );
@@ -273,6 +273,28 @@ function ToolScreen({ color, Icon, label, children }) {
   );
 }
 
+// L'écran complet de l'appli : en-tête (logo, recherche, langue), la page, et la barre
+// Novaris · Forum · Léa · Articles en bas — exactement comme sur le téléphone.
+const CHROME_H = 728;
+function AppChrome({ lang, children }) {
+  return (
+    <div style={{ margin: "-26px -14px 0", height: CHROME_H, position: "relative", overflow: "hidden", transform: "translateZ(0)", background: COLORS.cream }}>
+      <div style={{ background: "rgba(247,244,238,0.82)", borderBottom: `1px solid ${COLORS.line}`, padding: "30px 16px 12px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+        <div style={{ background: COLORS.line, padding: "8px 14px", borderRadius: 14, display: "flex", alignItems: "center" }}><Logo height={30} /></div>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <GlobalSearch lang={lang} goTo={noop} compact />
+          <div style={{ display: "flex", alignItems: "center", gap: 6, background: COLORS.card, border: `1px solid ${COLORS.line}`, borderRadius: 999, padding: "7px 14px", fontSize: 13, fontWeight: 600, color: COLORS.muted }}>
+            <Globe size={15} />{lang.toUpperCase()}
+          </div>
+        </div>
+      </div>
+      <div style={{ padding: "16px 16px 0" }}>{children}</div>
+      <QuickAccessBar lang={lang} active="accueil" goTo={noop} isMember />
+    </div>
+  );
+}
+const LAST_SCREEN_PHONE = { height: CHROME_H, fade: false };
+
 export function screenElements(lang) {
   const prof = demoProfile();
   const [sleep, growth, kicks, plannings, bump] = PT[lang].toolLabels;
@@ -285,7 +307,7 @@ export function screenElements(lang) {
     <ToolScreen color={COLORS.ochre} Icon={Footprints} label={kicks}><KickTracker lang={lang} goTo={noop} /></ToolScreen>,
     <ToolScreen color={COLORS.plum} Icon={Camera} label={bump}><BumpAlbumTool lang={lang} userProfile={prof} goTo={noop} /></ToolScreen>,
     <ToolScreen color={COLORS.sage} Icon={ClipboardList} label={plannings}><PlanningsTool lang={lang} goTo={noop} userProfile={prof} /></ToolScreen>,
-    <QuickTrackerLinks lang={lang} isMember goTo={noop} children={demoKids} userProfile={prof} />,
+    <AppChrome lang={lang}><QuickTrackerLinks lang={lang} isMember goTo={noop} children={demoKids} userProfile={prof} /></AppChrome>,
   ];
 }
 
@@ -308,7 +330,7 @@ export function ShowcaseStatic({ lang, renderScreen }) {
               <div style={{ fontFamily: FRAUNCES, fontSize: 18, fontWeight: 700, color: COLORS.teal, lineHeight: 1.25, marginBottom: 5, minHeight: 45 }}>{title}</div>
               <p style={{ fontSize: 12.5, color: COLORS.muted, margin: "0 0 14px", lineHeight: 1.45, minHeight: 36 }}>{text}</p>
               <div style={{ marginTop: "auto", height: 440, overflow: "hidden" }}>
-                <PhoneFrame><div dangerouslySetInnerHTML={{ __html: html }} /></PhoneFrame>
+                <PhoneFrame {...(i === P.screens.length - 1 ? LAST_SCREEN_PHONE : {})}><div dangerouslySetInnerHTML={{ __html: html }} /></PhoneFrame>
               </div>
             </div>
           );

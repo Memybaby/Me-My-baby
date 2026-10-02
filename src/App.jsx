@@ -46818,5 +46818,5 @@ export { ARTICLES, ARTICLE_CATEGORIES, getPublishedArticles, LEGAL_TEXT };
 export {
   Home, PregnancyCalculator, OvulationCalculator, LockedContent, WhatsIncludedCard, Card, Logo, Illustration,
   COLORS, T, PLANS, UI_FONT, ToyDivider, FreeToolBadge, TRIAL_DAYS, SUPABASE_URL, SUPABASE_KEY,
-  QuickTrackerLinks, AIAssistant, SleepTracker, GrowthTracker, PlanningsTool, ContractionTracker, KickTracker, WeeklyMenuTable, ForumSection, BumpAlbumTool,
+  QuickTrackerLinks, AIAssistant, SleepTracker, GrowthTracker, PlanningsTool, ContractionTracker, KickTracker, WeeklyMenuTable, ForumSection, BumpAlbumTool, QuickAccessBar, GlobalSearch,
 };
