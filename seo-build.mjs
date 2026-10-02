@@ -214,7 +214,10 @@ const crumbs = (lang, items) => `<div class="crumbs">${items.map(([label, href])
 const crumbsLd = (items) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items.map(([name, href], i) => ({ "@type": "ListItem", position: i + 1, name, ...(href ? { item: SITE + href } : {}) })) });
 
 // ---------- 6. Articles publiés ----------
-const published = getPublishedArticles(ARTICLES);
+// Sur Google, on publie au moins les 100 premiers articles (ou plus, si l'appli en a déjà débloqué
+// davantage). Dans l'appli, le rythme reste de 4 nouveautés par semaine.
+const PUBLIC_MIN_ARTICLES = 100;
+const published = ARTICLES.slice(0, Math.max(getPublishedArticles(ARTICLES).length, Math.min(PUBLIC_MIN_ARTICLES, ARTICLES.length)));
 const usedSlugs = { fr: new Set(), en: new Set(), es: new Set() };
 const articleInfo = published.map((a, i) => {
   const slugs = {};
@@ -224,7 +227,8 @@ const articleInfo = published.map((a, i) => {
     usedSlugs[l].add(s);
     slugs[l] = `${PATHS.articles[l]}/${s}`;
   }
-  return { a, slugs, date: publishedOn(ARTICLES.indexOf(a)) };
+  const d = publishedOn(ARTICLES.indexOf(a));
+  return { a, slugs, date: d > TODAY ? TODAY : d }; // jamais de date dans le futur
 });
 const catLabel = (id, lang) => ARTICLE_CATEGORIES.find((c) => c.id === id)?.label?.[lang] || id;
 const minutes = (a, l) => Math.max(2, Math.round(a.body[l].join(" ").split(/\s+/).length / 200));
