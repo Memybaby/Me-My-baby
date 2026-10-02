@@ -245,7 +245,7 @@ for (const lang of LANGS) {
 <h2>${esc(t.freeTools)}</h2><div class="grid"><a class="card" href="${PATHS.preg[lang]}"><h3>🤰 ${esc(t.navPreg)}</h3><span class="muted">${esc(CALC.preg[lang].desc)}</span></a><a class="card" href="${PATHS.ov[lang]}"><h3>🌸 ${esc(t.navOv)}</h3><span class="muted">${esc(CALC.ov[lang].desc)}</span></a></div>
 <h2>${esc(t.latest)}</h2><div class="grid">${recent.map((x) => articleCard(x, lang)).join("")}</div><p><a href="${PATHS.articles[lang]}">${esc(t.allArticles)} →</a></p>`,
   }));
-  addUrl(PATHS.home);
+  if (lang === "fr") addUrl(PATHS.home); // une seule fois : chaque entrée liste déjà les 3 langues
 
   // Calculateurs
   for (const k of ["preg", "ov"]) {
@@ -273,7 +273,7 @@ var ov=add(s,c-14);document.getElementById("r1").textContent=f(ov);document.getE
       jsonld: [{ "@context": "https://schema.org", "@type": "WebApplication", name: c.h1, url: SITE + p, applicationCategory: "HealthApplication", operatingSystem: "Web", inLanguage: lang, offers: { "@type": "Offer", price: "0", priceCurrency: "CAD" } }, faqLd, crumbsLd(crumbItems)],
       body: `${crumbs(lang, crumbItems)}<h1>${esc(c.h1)}</h1><p class="lead">${esc(c.intro)}</p>${form}${c.sections.map(([h, txt]) => `<h2>${esc(h)}</h2><p>${esc(txt)}</p>`).join("")}`,
     }));
-    addUrl(PATHS[k]);
+    if (lang === "fr") addUrl(PATHS[k]);
   }
 
   // Liste des articles
@@ -283,7 +283,7 @@ var ov=add(s,c-14);document.getElementById("r1").textContent=f(ov);document.getE
     jsonld: [crumbsLd([[t.home, PATHS.home[lang]], [t.articlesH1, null]])],
     body: `${crumbs(lang, [[t.home, PATHS.home[lang]], [t.articlesH1, null]])}<h1>${esc(t.articlesH1)}</h1><p class="lead">${esc(t.articlesIntro)}</p>${byCat.map((g) => `<h2>${esc(g.cat.label[lang])}</h2><div class="grid">${g.items.map((x) => articleCard(x, lang)).join("")}</div>`).join("")}`,
   }));
-  addUrl(PATHS.articles);
+  if (lang === "fr") addUrl(PATHS.articles);
 
   // Chaque article
   for (const x of articleInfo) {
