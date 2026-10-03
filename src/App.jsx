@@ -29886,7 +29886,7 @@ const ARTICLES = [
     dateAdded: "2026-04-13",
     icon: Bell,
     color: COLORS.lavender,
-    image: { url: "https://images.unsplash.com/photo-1656634064343-39ff5269d651?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé endormi dans son berceau", en: "Baby sleeping peacefully in a crib", es: "Bebé dormido tranquilamente en su cuna" } },
+    image: { url: "https://images.unsplash.com/photo-1662624914069-a5cb84d7c386?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé qui pleure dans son lit", en: "Baby crying in bed", es: "Bebé llorando en la cama" } },
     title: {
       fr: "Faut-il « laisser pleurer » bébé pour l'aider à dormir ?",
       en: "Do you have to let your baby 'cry it out' to help them sleep?",
@@ -30352,7 +30352,7 @@ const ARTICLES = [
     dateAdded: "2026-02-09",
     icon: Footprints,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1560690998-51cc5edbe1f2?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte marchant en plein air à côté d'une fillette", en: "Pregnant woman walking outdoors beside a young girl", es: "Mujer embarazada caminando al aire libre junto a una niña" } },
+    image: { url: "https://images.unsplash.com/photo-1710897868917-1b2ddbf697ee?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte en tenue de sport", en: "Pregnant woman in workout clothes", es: "Mujer embarazada con ropa deportiva" } },
     title: {
       fr: "Quel exercice physique est sécuritaire pendant la grossesse ?",
       en: "What physical exercise is safe during pregnancy?",
@@ -30612,7 +30612,7 @@ const ARTICLES = [
     dateAdded: "2026-03-16",
     icon: Baby,
     color: COLORS.pink,
-    image: { url: "https://images.unsplash.com/photo-1685012107487-fd5654f6bdfc?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte tenant son ventre avec une ombre en forme de cœur", en: "Pregnant woman holding her belly with a heart-shaped shadow on it", es: "Mujer embarazada sosteniendo su vientre con una sombra en forma de corazón" } },
+    image: { url: "https://images.unsplash.com/photo-1555856248-2676336c0e9b?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte tenant son ventre", en: "Pregnant woman holding her belly", es: "Mujer embarazada sosteniendo su vientre" } },
     title: {
       fr: "Pourquoi le bébé se retourne-t-il (ou pas) avant la naissance ?",
       en: "Why does a baby turn head-down before birth (or not)?",
@@ -30768,7 +30768,7 @@ const ARTICLES = [
     dateAdded: "2026-04-06",
     icon: Calendar,
     color: COLORS.slate,
-    image: { url: "https://images.unsplash.com/photo-1654931800911-7a9cfb3b7c17?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Une femme enceinte tenant une échographie contre son ventre", en: "A pregnant woman holding an ultrasound scan against her belly", es: "Una mujer embarazada sosteniendo una ecografía contra su vientre" } },
+    image: { url: "https://images.unsplash.com/photo-1586102728466-46b99b3bc411?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte près d'un berceau dans la chambre de bébé", en: "Pregnant woman by a crib in the nursery", es: "Mujer embarazada junto a una cuna en el cuarto del bebé" } },
     title: {
       fr: "Grossesse après 35 ans : à quoi s'attendre ?",
       en: "Pregnancy after 35: what to expect?",
@@ -31184,7 +31184,7 @@ const ARTICLES = [
     dateAdded: "2026-06-01",
     icon: Heart,
     color: COLORS.sage,
-    image: { url: "https://images.unsplash.com/photo-1685012107487-fd5654f6bdfc?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte tenant son ventre, une ombre en forme de cœur projetée sur celui-ci", en: "Pregnant woman holding her belly with a heart-shaped shadow cast on it", es: "Mujer embarazada sosteniendo su vientre con una sombra en forma de corazón proyectada sobre él" } },
+    image: { url: "https://images.unsplash.com/photo-1651663303138-4dc283e15992?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte pensive près d'une fenêtre", en: "Thoughtful pregnant woman by a window", es: "Mujer embarazada pensativa junto a una ventana" } },
     title: {
       fr: "Grossesse après une fausse couche : gérer l'anxiété",
       en: "Pregnancy after a miscarriage: managing anxiety",
@@ -31392,7 +31392,7 @@ const ARTICLES = [
     dateAdded: "2026-06-29",
     icon: ShieldAlert,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1716263768545-0597f82fd7e8?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte posant les mains sur son ventre, confortablement installée chez elle", en: "Pregnant woman resting her hands on her belly, comfortably at home", es: "Mujer embarazada con las manos sobre su vientre, cómodamente instalada en casa" } },
+    image: { url: "https://images.unsplash.com/photo-1606161902041-607a6899d630?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme tenant un chat dans ses bras", en: "Woman holding a cat in her arms", es: "Mujer sosteniendo un gato en brazos" } },
     title: {
       fr: "Grossesse et animaux de compagnie : le risque de toxoplasmose",
       en: "Pregnancy and pets: the toxoplasmosis risk",
@@ -31444,7 +31444,7 @@ const ARTICLES = [
     dateAdded: "2026-07-06",
     icon: Users,
     color: COLORS.coral,
-    image: { url: "https://images.unsplash.com/photo-1654931800911-7a9cfb3b7c17?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Personne enceinte tenant une image d'échographie", en: "Pregnant person holding an ultrasound scan", es: "Persona embarazada sosteniendo una imagen de ecografía" } },
+    image: { url: "https://images.unsplash.com/photo-1744424705160-c2a32b5dc4e3?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Deux bébés couchés côte à côte sur une couverture", en: "Two babies lying side by side on a blanket", es: "Dos bebés acostados uno al lado del otro sobre una manta" } },
     title: {
       fr: "Grossesse multiple : un suivi médical particulier",
       en: "Multiple pregnancy: a distinct kind of medical follow-up",
@@ -31756,7 +31756,7 @@ const ARTICLES = [
     dateAdded: "2026-04-02",
     icon: Heart,
     color: COLORS.coral,
-    image: { url: "https://images.unsplash.com/photo-1710897537209-392c74a1c299?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte debout, les mains posées sur son ventre", en: "Pregnant woman standing with her hands on her belly", es: "Mujer embarazada de pie con las manos sobre su vientre" } },
+    image: { url: "https://images.unsplash.com/photo-1568043625493-2b0633c7c491?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte en robe verte, les mains sur son ventre", en: "Pregnant woman in a green dress with her hands on her belly", es: "Mujer embarazada con vestido verde y las manos sobre su vientre" } },
     title: {
       fr: "Comment reconnaître les signes du travail ?",
       en: "How can you recognize the signs of labor?",
@@ -31860,7 +31860,7 @@ const ARTICLES = [
     dateAdded: "2026-04-09",
     icon: Users,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1553014124-cbce6b06da21?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Gros plan de la main d'un parent tenant délicatement la main d'un nouveau-né", en: "Close-up of a parent's hand gently holding a newborn's hand", es: "Primer plano de la mano de un padre sosteniendo con delicadeza la mano de un recién nacido" } },
+    image: { url: "https://images.unsplash.com/photo-1559658826-d5be48f0cfe2?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme couchée dans un lit d'hôpital", en: "Woman lying in a hospital bed", es: "Mujer acostada en una cama de hospital" } },
     title: {
       fr: "Quelles sont les différentes positions pour accoucher ?",
       en: "What are the different positions for giving birth?",
@@ -32224,7 +32224,7 @@ const ARTICLES = [
     dateAdded: "2026-05-05",
     icon: Baby,
     color: COLORS.pink,
-    image: { url: "https://images.unsplash.com/photo-1763679324923-b856ca6a355d?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Mère tenant son bébé tout contre sa poitrine en peau à peau", en: "Mother holding her baby close against her chest, skin-to-skin", es: "Madre sosteniendo a su bebé pegado a su pecho, piel con piel" } },
+    image: { url: "https://images.unsplash.com/photo-1534179490021-a8261bbbed30?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman tenant son nouveau-né contre elle", en: "Mother holding her newborn close", es: "Mamá sosteniendo a su recién nacido contra ella" } },
     title: {
       fr: "Le peau à peau à la naissance : pourquoi c'est important",
       en: "Skin-to-skin contact at birth: why it matters",
@@ -32328,7 +32328,7 @@ const ARTICLES = [
     dateAdded: "2026-05-13",
     icon: Scissors,
     color: COLORS.blue,
-    image: { url: "https://images.unsplash.com/photo-1640876777012-bdb00a6323e2?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Équipe de médecins pratiquant une opération en salle d'opération", en: "A group of doctors performing surgery in an operating room", es: "Un grupo de médicos realizando una cirugía en el quirófano" } },
+    image: { url: "https://images.unsplash.com/photo-1720465512614-7d841a28fbc9?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman tenant son bébé dans un lit d'hôpital", en: "Mother holding her baby in a hospital bed", es: "Mamá sosteniendo a su bebé en una cama de hospital" } },
     title: {
       fr: "Accoucher après une césarienne (AVAC) : est-ce possible ?",
       en: "Vaginal birth after cesarean (VBAC): is it possible?",
@@ -32588,7 +32588,7 @@ const ARTICLES = [
     dateAdded: "2026-06-02",
     icon: Heart,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1759802147227-d9b32bd34996?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Mère tenant son bébé nouveau-né juste après la naissance", en: "Mother holding her newborn baby right after birth", es: "Madre sosteniendo a su bebé recién nacido justo después del parto" } },
+    image: { url: "https://images.unsplash.com/photo-1620737007484-2d3bd3079a35?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman couchée près de son bébé à la maison", en: "Mother lying next to her baby at home", es: "Mamá acostada junto a su bebé en casa" } },
     title: {
       fr: "Accouchement à domicile : est-ce fait pour vous ?",
       en: "Home birth: is it right for you?",
@@ -32640,7 +32640,7 @@ const ARTICLES = [
     dateAdded: "2026-06-06",
     icon: Bath,
     color: COLORS.teal,
-    image: { url: "https://images.unsplash.com/photo-1564228539519-4dfe919785a6?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé garçon prenant un bain dans une baignoire", en: "Baby boy bathing in a bathtub", es: "Bebé varón bañándose en una bañera" } },
+    image: { url: "https://images.unsplash.com/photo-1609220361580-31017d9da806?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé dans une petite baignoire blanche", en: "Baby in a small white bathtub", es: "Bebé en una pequeña bañera blanca" } },
     title: {
       fr: "Premier bain de bébé : pourquoi attendre est recommandé",
       en: "Baby's first bath: why waiting is now recommended",
@@ -32744,7 +32744,7 @@ const ARTICLES = [
     dateAdded: "2026-06-14",
     icon: Car,
     color: COLORS.ochre,
-    image: { url: "https://images.unsplash.com/photo-1656634064343-39ff5269d651?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Un bébé dort paisiblement dans son berceau.", en: "A baby sleeping peacefully in a crib.", es: "Un bebé duerme tranquilamente en su cuna." } },
+    image: { url: "https://images.unsplash.com/photo-1583710457367-47de0ea21fef?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman portant son bébé dans ses bras", en: "Mother carrying her baby in her arms", es: "Mamá cargando a su bebé en brazos" } },
     title: {
       fr: "Retour à la maison après l'accouchement : bien s'organiser",
       en: "Going home after birth: how to get organized",
@@ -32948,7 +32948,7 @@ const ARTICLES = [
     dateAdded: "2026-06-30",
     icon: Calendar,
     color: COLORS.ochre,
-    image: { url: "https://images.unsplash.com/photo-1572531186838-27a5459566f2?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte en robe fleurie jaune touchant son ventre près d'un champ", en: "Pregnant woman in a yellow floral dress touching her belly near a field", es: "Mujer embarazada con vestido floral amarillo tocando su vientre cerca de un campo" } },
+    image: { url: "https://images.unsplash.com/photo-1538678867871-8a43e7487746?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte en robe rayée dans un champ ensoleillé", en: "Pregnant woman in a striped dress in a sunny field", es: "Mujer embarazada con vestido de rayas en un campo soleado" } },
     title: {
       fr: "Grossesse post-terme et déclenchement : que se passe-t-il après 41 semaines ?",
       en: "Post-term pregnancy and induction: what happens after 41 weeks?",
@@ -33052,7 +33052,7 @@ const ARTICLES = [
     dateAdded: "2026-07-08",
     icon: Droplet,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1656634064343-39ff5269d651?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé endormi paisiblement dans son lit à barreaux", en: "Baby sleeping peacefully in its crib", es: "Bebé durmiendo tranquilamente en su cuna" } },
+    image: { url: "https://images.unsplash.com/photo-1626296420762-c80977b60c87?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Nouveau-né couché dans son pyjama fleuri", en: "Newborn lying in a floral onesie", es: "Recién nacido acostado con un pijama de flores" } },
     title: {
       fr: "Premiers soins du cordon ombilical à la maison",
       en: "Caring for the umbilical cord stump at home",
@@ -33256,7 +33256,7 @@ const ARTICLES = [
     dateAdded: "2026-07-24",
     icon: ShieldAlert,
     color: COLORS.coral,
-    image: { url: "https://images.unsplash.com/photo-1640876777012-bdb00a6323e2?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Un groupe de médecins pratiquant une opération en salle d'opération", en: "A group of doctors performing surgery in an operating room", es: "Un grupo de médicos realizando una cirugía en el quirófano" } },
+    image: { url: "https://images.unsplash.com/photo-1692459525014-596d53e68329?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Nouveau-né dans un lit d'hôpital", en: "Newborn in a hospital bed", es: "Recién nacido en una cama de hospital" } },
     title: {
       fr: "Complications rares de l'accouchement à connaître",
       en: "Rare birth complications worth knowing about",
@@ -33516,7 +33516,7 @@ const ARTICLES = [
     dateAdded: "2026-09-28",
     icon: Baby,
     color: COLORS.sage,
-    image: { url: "https://images.unsplash.com/photo-1656634064343-39ff5269d651?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Nouveau-né se reposant paisiblement dans un berceau", en: "Newborn resting peacefully in a crib", es: "Recién nacido descansando tranquilamente en una cuna" } },
+    image: { url: "https://images.unsplash.com/photo-1505679428249-ebe9559320a0?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé couché sur un lit", en: "Baby lying on a bed", es: "Bebé acostado en una cama" } },
     title: {
       fr: "Le sursaut du sommeil (réflexe de Moro) : est-ce normal ?",
       en: "The startle reflex (Moro reflex) during sleep: is it normal?",
@@ -34556,7 +34556,7 @@ const ARTICLES = [
     dateAdded: "2026-10-18",
     icon: Milk,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1570560558077-45ad028193e5?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Parent donnant le biberon à un bébé", en: "Caregiver bottle-feeding an infant", es: "Cuidador dando el biberón a un bebé" } },
+    image: { url: "https://images.unsplash.com/photo-1495711497737-cb9591f6dd5e?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman qui nourrit son bébé", en: "Mother feeding her baby", es: "Mamá alimentando a su bebé" } },
     title: {
       fr: "Le sommeil diffère-t-il entre un bébé allaité et un bébé au biberon ?",
       en: "Does sleep differ between breastfed and formula-fed babies?",
@@ -34816,7 +34816,7 @@ const ARTICLES = [
     dateAdded: "2026-10-23",
     icon: Moon,
     color: COLORS.slate,
-    image: { url: "https://images.unsplash.com/photo-1544268211-ba72491bf350?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé endormi paisiblement", en: "Baby sleeping peacefully", es: "Bebé durmiendo tranquilamente" } },
+    image: { url: "https://images.unsplash.com/photo-1510632233616-88025944e960?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé endormi sur un coussin gris", en: "Baby asleep on a grey cushion", es: "Bebé dormido sobre un cojín gris" } },
     title: {
       fr: "Le sommeil paradoxal chez le nourrisson : à quoi ça sert ?",
       en: "REM sleep in infants: what's it actually for?",
@@ -35024,7 +35024,7 @@ const ARTICLES = [
     dateAdded: "2026-09-22",
     icon: Droplet,
     color: COLORS.blue,
-    image: { url: "https://images.unsplash.com/photo-1542644384-49f9febd8443?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Un homme tient un bébé dans ses bras avec tendresse", en: "A man tenderly holds a baby in his arms", es: "Un hombre sostiene con ternura a un bebé en sus brazos" } },
+    image: { url: "https://images.unsplash.com/photo-1634290996327-099de799f602?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman tenant son bébé sur ses genoux", en: "Mother holding her baby on her lap", es: "Mamá sosteniendo a su bebé en su regazo" } },
     title: {
       fr: "Reflux et régurgitations chez bébé : quand s'inquiéter ?",
       en: "Baby reflux and spit-up: when should you worry?",
@@ -35232,7 +35232,7 @@ const ARTICLES = [
     dateAdded: "2026-09-22",
     icon: Milk,
     color: COLORS.ochre,
-    image: { url: "https://images.unsplash.com/photo-1584367368243-c0c59fd4a1f9?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé en body bleu buvant du lait au biberon.", en: "Baby in a blue outfit drinking milk from a feeding bottle.", es: "Bebé con ropa azul bebiendo leche de un biberón." } },
+    image: { url: "https://images.unsplash.com/photo-1542386247-eb6355c537c1?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé pendant un boire", en: "Baby during a feeding", es: "Bebé durante una toma" } },
     title: {
       fr: "Comment bien choisir une préparation commerciale pour nourrissons ?",
       en: "How to choose an infant formula?",
@@ -36064,7 +36064,7 @@ const ARTICLES = [
     dateAdded: "2026-09-24",
     icon: Scale,
     color: COLORS.sage,
-    image: { url: "https://images.unsplash.com/photo-1551049215-23fd6d2ac3f1?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Un adulte pose un bébé sur une balance pour le peser lors d'une visite médicale.", en: "An adult placing a baby on a scale to be weighed during a checkup.", es: "Un adulto coloca a un bebé en una báscula para pesarlo durante una consulta." } },
+    image: { url: "https://images.unsplash.com/photo-1559835491-08d2e0781dd9?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Nouveau-né sur un pèse-bébé", en: "Newborn on a baby scale", es: "Recién nacido en una báscula para bebés" } },
     title: {
       fr: "Poids et croissance de l'enfant : suivre la courbe sans obséder",
       en: "Weight and growth: following the chart without obsessing",
@@ -36272,7 +36272,7 @@ const ARTICLES = [
     dateAdded: "2026-09-24",
     icon: Apple,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1548289227-b7d966b70003?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Jeune enfant souriant en train de manger des légumes dans un bol", en: "Smiling toddler eating vegetables from a bowl", es: "Niño pequeño sonriente comiendo verduras de un bol" } },
+    image: { url: "https://images.unsplash.com/photo-1647069325808-911db781ec93?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Petit garçon assis devant son assiette", en: "Little boy sitting in front of his plate", es: "Niño pequeño sentado frente a su plato" } },
     title: {
       fr: "La néophobie alimentaire chez l'enfant : une étape normale",
       en: "Food neophobia in children: a normal developmental stage",
@@ -36480,7 +36480,7 @@ const ARTICLES = [
     dateAdded: "2026-09-24",
     icon: Stethoscope,
     color: COLORS.blue,
-    image: { url: "https://images.unsplash.com/photo-1568293766317-02518c4f2d90?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Gros plan d'un bébé en train d'être allaité", en: "Close-up photo of a baby breastfeeding", es: "Primer plano de un bebé siendo amamantado" } },
+    image: { url: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman portant son bébé", en: "Mother holding her baby", es: "Mamá cargando a su bebé" } },
     title: {
       fr: "Allaitement et médicaments : lesquels sont compatibles ?",
       en: "Breastfeeding and medication: which ones are compatible?",
@@ -36532,7 +36532,7 @@ const ARTICLES = [
     dateAdded: "2026-09-24",
     icon: UtensilsCrossed,
     color: COLORS.teal,
-    image: { url: "https://images.unsplash.com/photo-1718471973355-899ac19e7d97?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Une petite fille assise dans une chaise haute en train de manger", en: "A baby girl sitting in a high chair eating food", es: "Una nina sentada en una trona comiendo" } },
+    image: { url: "https://images.unsplash.com/photo-1760267967877-43e9806b023c?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Jeune enfant qui pointe un menu coloré au restaurant", en: "Young child pointing at a colorful menu in a restaurant", es: "Niño pequeño señalando un menú colorido en un restaurante" } },
     title: {
       fr: "Comment gérer un repas au restaurant avec un jeune enfant ?",
       en: "How to manage a restaurant meal with a young child?",
@@ -36674,7 +36674,7 @@ const ARTICLES = [
     dateAdded: "2026-09-22",
     icon: Sparkles,
     color: COLORS.pink,
-    image: { url: "https://images.unsplash.com/photo-1710897537209-392c74a1c299?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Portrait d'une femme enceinte posant les mains sur son ventre", en: "Portrait of a pregnant woman with her hands resting on her belly", es: "Retrato de una mujer embarazada con las manos sobre su vientre" } },
+    image: { url: "https://images.unsplash.com/photo-1615766553246-9147b6d50e90?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte en robe rose", en: "Pregnant woman in a pink dress", es: "Mujer embarazada con vestido rosa" } },
     title: {
       fr: "Grossesse et acné hormonale : comment y faire face ?",
       en: "Pregnancy and hormonal acne: how to manage it?",
@@ -36764,7 +36764,7 @@ const ARTICLES = [
     dateAdded: "2026-09-22",
     icon: Stethoscope,
     color: COLORS.coral,
-    image: { url: "https://images.unsplash.com/photo-1710897869539-a48e3d69a8d7?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte posant en débardeur, montrant son ventre", en: "Pregnant woman posing in a tank top, showing her belly", es: "Mujer embarazada posando con una camiseta sin mangas, mostrando su vientre" } },
+    image: { url: "https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Mains posées sur un ventre de grossesse", en: "Hands resting on a pregnant belly", es: "Manos sobre un vientre de embarazo" } },
     title: {
       fr: "Douleurs ligamentaires (ligament rond) pendant la grossesse",
       en: "Round ligament pain during pregnancy",
@@ -37124,7 +37124,7 @@ const ARTICLES = [
     dateAdded: "2026-09-22",
     icon: Droplet,
     color: COLORS.blue,
-    image: { url: "https://images.unsplash.com/photo-1654931800911-7a9cfb3b7c17?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Personne enceinte tenant une échographie dans ses mains", en: "Pregnant person holding an ultrasound scan printout", es: "Persona embarazada sosteniendo una imagen de ecografía" } },
+    image: { url: "https://images.unsplash.com/photo-1741900461118-fd681b35addb?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Échographies d'un bébé en développement", en: "Ultrasound scans of a developing baby", es: "Ecografías de un bebé en desarrollo" } },
     title: {
       fr: "Le liquide amniotique : à quoi sert-il et comment est-il surveillé ?",
       en: "Amniotic fluid: what does it do and how is it monitored?",
@@ -37529,7 +37529,7 @@ const ARTICLES = [
     dateAdded: "2026-09-23",
     icon: ShieldAlert,
     color: COLORS.coral,
-    image: { url: "https://images.unsplash.com/photo-1582486225644-aeacf6aa0b1b?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Gros plan en noir et blanc d'une main d'adulte enveloppant la petite main d'un nouveau-né", en: "Black-and-white close-up of an adult hand cradling a tiny newborn hand", es: "Primer plano en blanco y negro de una mano de adulto envolviendo la pequeña mano de un recién nacido" } },
+    image: { url: "https://images.unsplash.com/photo-1566780659476-4edea50d785a?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Femme enceinte tenant une échographie près de son ventre", en: "Pregnant woman holding an ultrasound photo near her belly", es: "Mujer embarazada sosteniendo una ecografía cerca de su vientre" } },
     title: {
       fr: "Cordon autour du cou à la naissance : faut-il s'inquiéter ?",
       en: "Cord around the neck at birth: should you worry?",
@@ -37799,7 +37799,7 @@ const ARTICLES = [
     dateAdded: "2026-09-23",
     icon: Users,
     color: COLORS.slate,
-    image: { url: "https://images.unsplash.com/photo-1542644384-49f9febd8443?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Un homme tenant un bébé dans ses bras avec tendresse", en: "A man tenderly holding a baby in his arms", es: "Un hombre sosteniendo con ternura a un bebé en sus brazos" } },
+    image: { url: "https://images.unsplash.com/photo-1519031848557-f6f8c56cb463?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Papa tenant son bébé", en: "Father holding his baby", es: "Papá sosteniendo a su bebé" } },
     title: {
       fr: "Les émotions du père ou du partenaire après la naissance",
       en: "The emotions of fathers and partners after birth",
@@ -38135,7 +38135,7 @@ const ARTICLES = [
     dateAdded: "2026-09-28",
     icon: Clock,
     color: COLORS.slate,
-    image: { url: "https://images.unsplash.com/photo-1672928499632-1d040212e3f4?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Une petite fille paisible dans son lit, baignée d'une douce lumière", en: "A young girl resting peacefully in bed, bathed in soft light", es: "Una niña pequeña descansando tranquila en la cama, bañada por una luz suave" } },
+    image: { url: "https://images.unsplash.com/photo-1650651129774-72f8250e4393?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé endormi dans son lit à barreaux", en: "Baby asleep in a crib", es: "Bebé dormido en su cuna" } },
     title: {
       fr: "Routine du matin vs routine du soir : laquelle privilégier ?",
       en: "Morning routine vs evening routine: which one matters more?",
@@ -38395,7 +38395,7 @@ const ARTICLES = [
     dateAdded: "2026-10-03",
     icon: Sparkles,
     color: COLORS.teal,
-    image: { url: "https://images.unsplash.com/photo-1656634064343-39ff5269d651?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé dormant paisiblement dans son lit à barreaux", en: "Baby sleeping peacefully in a crib", es: "Bebé durmiendo tranquilamente en su cuna" } },
+    image: { url: "https://images.unsplash.com/photo-1552819289-e14fbbcea868?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Bébé endormi sur un drap blanc", en: "Baby asleep on a white sheet", es: "Bebé dormido sobre una sábana blanca" } },
     title: {
       fr: "Le rôle du sommeil dans le développement du cerveau de l'enfant",
       en: "The role of sleep in a child's brain development",
@@ -38655,7 +38655,7 @@ const ARTICLES = [
     dateAdded: "2026-10-08",
     icon: Moon,
     color: COLORS.mint,
-    image: { url: "https://images.unsplash.com/photo-1542644384-49f9febd8443?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Un homme berçant doucement un bébé dans ses bras", en: "A man gently rocking a baby in his arms", es: "Un hombre acunando suavemente a un bebé en sus brazos" } },
+    image: { url: "https://images.unsplash.com/photo-1574706472790-f24ebe0510ba?auto=format&fit=crop&w=1200&q=75", alt: { fr: "Maman berçant son bébé dans ses bras", en: "Mother rocking her baby in her arms", es: "Mamá meciendo a su bebé en brazos" } },
     title: {
       fr: "Bercer bébé pour l'endormir : bonne ou mauvaise habitude ?",
       en: "Rocking baby to sleep: good habit or bad one?",
